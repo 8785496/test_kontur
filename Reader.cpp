@@ -25,7 +25,12 @@ Reader::~Reader() {
 }
 
 int Reader::fileSize(const char *fileName) {
-    ifstream fin(fileName, ios::ate | ios::binary);
+    ifstream fin(fileName, ios::in | ios::binary);
+    if (!fin.is_open()) {
+        cout << "File '" << fileName <<  "' not open" << endl;
+        throw exception();
+    }
+    fin.seekg(0, ios::end);
     int size = fin.tellg();
     fin.close();
     return size;
