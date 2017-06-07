@@ -2,7 +2,6 @@
 #include <vector>
 #include "Reader.h"
 #include "Graph.h"
-#include "helper.h"
 
 using namespace std;
 
@@ -25,7 +24,6 @@ int main(int argc , char *argv[]) {
     cout << "  1 - print list of unloved" << endl;
     cout << "  2 - print list of unhappy" << endl;
     cout << "  3 - print list of favorite" << endl;
-    cout << "  4 - write test files" << endl;
 
     int command = 0;
     while (true) {
@@ -48,13 +46,10 @@ int main(int argc , char *argv[]) {
                     cout << *it << endl;
                 break;
             case 3:
-//                result = graph.getFavorite();
-//                for (auto it = result.begin(); it != result.end() ; ++it)
-//                    cout << **it << endl;
+                result = graph.getFavorite();
+                for (auto it = result.begin(); it != result.end() ; ++it)
+                    cout << *it << endl;
                 break;
-            case 4:
-                writeFiles();
-                return 0;
             default:
                 cout << "Command not found" << endl;
         }

@@ -1,7 +1,7 @@
 @startuml
 
 class Graph {
-- int[][] matrix
+- bool[][] matrix
 - string[] names
 + Graph(child* ch, int chSize, sympathy* sym, int symSize)
 + vector<string> getUnloved()

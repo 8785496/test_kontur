@@ -60,3 +60,26 @@ vector<string> Graph::getUnhappy() {
 
     return result;
 }
+
+vector<string> Graph::getFavorite() {
+    vector<string> result;
+    int max = 0;
+
+    for (int j = 0; j < cntName; ++j) {
+        int sum = 0;
+        for (int i = 0; i < cntName; ++i)
+            if(matrix[i][j])
+                sum++;
+        if (sum > 0) {
+            if (sum > max) {
+                max = sum;
+                result.clear();
+                result.push_back(name[j]);
+            } else if (sum == max) {
+                result.push_back(name[j]);
+            }
+        }
+    }
+
+    return result;
+}
