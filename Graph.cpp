@@ -52,7 +52,7 @@ vector<string> Graph::getUnhappy() {
         for (int j = 0; j < cntName; ++j) {
             if (matrix[i][j])
                 sum++;
-            multi += matrix[i][j] * matrix[j][i];
+            multi += (int)(matrix[i][j] && matrix[j][i]);
         }
         if (sum > 0 && multi == 0)
             result.push_back(name[i]);

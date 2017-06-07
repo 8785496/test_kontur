@@ -19,7 +19,7 @@ int main(int argc , char *argv[]) {
     );
     delete reader;
 
-    cout << "Commands:" << endl;
+    cout << "Comands:" << endl;
     cout << "  0 - exit" << endl;
     cout << "  1 - print list of unloved" << endl;
     cout << "  2 - print list of unhappy" << endl;
