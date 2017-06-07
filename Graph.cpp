@@ -8,11 +8,10 @@ Graph::Graph(child *ch, int chSize, sympathy *sym, int symSize) {
         name[ch[i].id] = ch[i].name;
     }
 
-    cntSympathy = symSize;
-    matrix = new bool*[symSize];
-    for (int k = 0; k < symSize; ++k) {
-        matrix[k] = new bool[symSize];
-        for (int p = 0; p < symSize; ++p) {
+    matrix = new bool*[cntName];
+    for (int k = 0; k < cntName; ++k) {
+        matrix[k] = new bool[cntName];
+        for (int p = 0; p < cntName; ++p) {
             matrix[k][p] = false;
         }
     }
@@ -24,21 +23,39 @@ Graph::Graph(child *ch, int chSize, sympathy *sym, int symSize) {
 
 Graph::~Graph() {
     delete[] name;
-    for (int i = 0; i < cntSympathy; ++i) {
+    for (int i = 0; i < cntName; ++i) {
         delete[] matrix[i];
     }
 }
 
-vector<string*> Graph::getUnloved() {
-    vector<string*> result;
+vector<string> Graph::getUnloved() {
+    vector<string> result;
 
-    for (int j = 0; j < cntSympathy; ++j) {
+    for (int j = 0; j < cntName; ++j) {
         int sum = 0;
-        for (int i = 0; i < cntSympathy; ++i)
+        for (int i = 0; i < cntName; ++i)
             if(matrix[i][j])
                 sum++;
         if (sum == 0)
-            result.push_back(&name[j]);
+            result.push_back(name[j]);
+    }
+
+    return result;
+}
+
+vector<string> Graph::getUnhappy() {
+    vector<string> result;
+
+    for (int i = 0; i < cntName; ++i) {
+        int multi = 0;
+        int sum = 0;
+        for (int j = 0; j < cntName; ++j) {
+            if (matrix[i][j])
+                sum++;
+            multi += matrix[i][j] * matrix[j][i];
+        }
+        if (sum > 0 && multi == 0)
+            result.push_back(name[i]);
     }
 
     return result;

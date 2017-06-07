@@ -32,7 +32,7 @@ int main(int argc , char *argv[]) {
         cout << endl << "To continue enter command: ";
         cin >> command;
 
-        vector<string*> result;
+        vector<string> result;
         switch (command)
         {
             case 0:
@@ -40,11 +40,21 @@ int main(int argc , char *argv[]) {
             case 1:
                 result = graph.getUnloved();
                 for (auto it = result.begin(); it != result.end() ; ++it)
-                    cout << **it << endl;
+                    cout << *it << endl;
+                break;
+            case 2:
+                result = graph.getUnhappy();
+                for (auto it = result.begin(); it != result.end() ; ++it)
+                    cout << *it << endl;
+                break;
+            case 3:
+//                result = graph.getFavorite();
+//                for (auto it = result.begin(); it != result.end() ; ++it)
+//                    cout << **it << endl;
                 break;
             case 4:
                 writeFiles();
-                break;
+                return 0;
             default:
                 cout << "Command not found" << endl;
         }

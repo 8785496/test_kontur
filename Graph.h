@@ -8,10 +8,10 @@ class Graph {
 private:
     bool **matrix;
     string *name;
-    int cntName, cntSympathy;
+    int cntName;
 public:
     Graph(child* ch, int chSize, sympathy* sym, int symSize);
-    vector<string*> getUnloved();
+    vector<string> getUnloved();
     vector<string> getUnhappy();
     vector<string> getFavorite();
     virtual ~Graph();
