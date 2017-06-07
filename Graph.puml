@@ -1,0 +1,22 @@
+@startuml
+
+class Graph {
+- int[][] matrix
+- string[] names
++ Graph(child* ch, int chSize, sympathy* sym, int symSize)
++ vector<string> getUnloved()
++ vector<string> getUnhappy()
++ vector<string> getFavorite()
+}
+
+object child{
++ int id
++ char[32] name
+}
+
+object sympathy{
++ int from
++ int to
+}
+
+@enduml

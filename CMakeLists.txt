@@ -3,5 +3,5 @@ project(test_kontur)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Reader.cpp Reader.h)
 add_executable(test_kontur ${SOURCE_FILES})
