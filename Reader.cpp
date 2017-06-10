@@ -20,15 +20,15 @@ Reader::Reader(const char *fNameChild, const char *fNameSympathy) {
 }
 
 Reader::~Reader() {
-    delete _child;
-    delete _sympathy;
+    delete[] _child;
+    delete[] _sympathy;
 }
 
 int Reader::fileSize(const char *fileName) {
     ifstream fin(fileName, ios::in | ios::binary);
     if (!fin.is_open()) {
-        cout << "File '" << fileName <<  "' not open" << endl;
-        throw exception();
+        cerr << "File '" << fileName <<  "' don't open" << endl;
+        throw new exception();
     }
     fin.seekg(0, ios::end);
     int size = fin.tellg();

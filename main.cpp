@@ -7,8 +7,8 @@ using namespace std;
 
 int main(int argc , char *argv[]) {
     if (argc < 3) {
-        cout << "Incorrect arguments" << endl;
-        throw exception();
+        cerr << "Incorrect arguments" << endl;
+        throw new exception();
     }
     Reader* reader = new Reader(argv[1], argv[2]);
     Graph graph(

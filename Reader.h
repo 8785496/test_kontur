@@ -1,3 +1,6 @@
+#ifndef TEST_KONTUR_READER_H
+#define TEST_KONTUR_READER_H
+
 #include "data.h"
 
 class Reader {
@@ -14,3 +17,5 @@ public:
     int getCntSympathy();
     virtual ~Reader();
 };
+
+#endif //TEST_KONTUR_READER_H

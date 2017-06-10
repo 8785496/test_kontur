@@ -26,6 +26,7 @@ Graph::~Graph() {
     for (int i = 0; i < cntName; ++i) {
         delete[] matrix[i];
     }
+    delete[] matrix;
 }
 
 vector<string> Graph::getUnloved() {

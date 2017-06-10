@@ -1,3 +1,6 @@
+#ifndef TEST_KONTUR_GRAPH_H
+#define TEST_KONTUR_GRAPH_H
+
 #include <string>
 #include <vector>
 #include "data.h"
@@ -16,3 +19,5 @@ public:
     vector<string> getFavorite();
     virtual ~Graph();
 };
+
+#endif //TEST_KONTUR_GRAPH_H
