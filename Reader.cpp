@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <cstring>
 #include "Reader.h"
 
 using namespace std;
@@ -27,7 +28,7 @@ Reader::~Reader() {
 int Reader::fileSize(const char *fileName) {
     ifstream fin(fileName, ios::in | ios::binary);
     if (!fin.is_open()) {
-        char buff[64];
+        char *buff = new char[17 + strlen(fileName)];
         sprintf(buff, "File '%s' not open", fileName);
         throw Exception(buff);
     }
