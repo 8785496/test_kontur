@@ -8,14 +8,20 @@ using namespace std;
 int main(int argc , char *argv[]) {
     if (argc < 3) {
         cerr << "Incorrect arguments" << endl;
-        throw new exception();
+        exit(1);
     }
-    Reader* reader = new Reader(argv[1], argv[2]);
+    Reader* reader;
+    try {
+        reader = new Reader(argv[1], argv[2]);
+    } catch (Reader::Exception &e) {
+        cerr << e.what() << endl;
+        exit(1);
+    }
     Graph graph(
-            reader->getChild(),
-            reader->getCntChild(),
-            reader->getSympathy(),
-            reader->getCntSympathy()
+        reader->getChild(),
+        reader->getCntChild(),
+        reader->getSympathy(),
+        reader->getCntSympathy()
     );
     delete reader;
 

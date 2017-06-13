@@ -13,10 +13,10 @@ private:
     string *name;
     int cntName;
 public:
-    Graph(child* ch, int chSize, sympathy* sym, int symSize);
-    vector<string> getUnloved();
-    vector<string> getUnhappy();
-    vector<string> getFavorite();
+    Graph(const child* ch, int chSize, const sympathy* sym, int symSize);
+    vector<string> getUnloved() const;
+    vector<string> getUnhappy() const;
+    vector<string> getFavorite() const;
     virtual ~Graph();
 };
 

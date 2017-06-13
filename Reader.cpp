@@ -27,8 +27,9 @@ Reader::~Reader() {
 int Reader::fileSize(const char *fileName) {
     ifstream fin(fileName, ios::in | ios::binary);
     if (!fin.is_open()) {
-        cerr << "File '" << fileName <<  "' don't open" << endl;
-        throw new exception();
+        char buff[64];
+        sprintf(buff, "File '%s' not open", fileName);
+        throw Exception(buff);
     }
     fin.seekg(0, ios::end);
     int size = fin.tellg();
@@ -36,18 +37,30 @@ int Reader::fileSize(const char *fileName) {
     return size;
 }
 
-child *Reader::getChild() {
+const child *Reader::getChild() const {
     return _child;
 }
 
-sympathy *Reader::getSympathy() {
+const sympathy *Reader::getSympathy() const {
     return _sympathy;
 }
 
-int Reader::getCntChild() {
+int Reader::getCntChild() const {
     return cntChild;
 }
 
-int Reader::getCntSympathy() {
+int Reader::getCntSympathy() const {
     return cntSympathy;
+}
+
+const char *Reader::Exception::what() const throw() {
+    return _message;
+}
+
+Reader::Exception::~Exception() {
+    delete[] _message;
+}
+
+Reader::Exception::Exception(const char *message) {
+    _message = message;
 }

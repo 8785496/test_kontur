@@ -1,7 +1,7 @@
 #include <vector>
 #include "Graph.h"
 
-Graph::Graph(child *ch, int chSize, sympathy *sym, int symSize) {
+Graph::Graph(const child *ch, int chSize, const sympathy *sym, int symSize) {
     cntName = chSize;
     name = new string[chSize];
     for (int i = 0; i < chSize; ++i) {
@@ -29,7 +29,7 @@ Graph::~Graph() {
     delete[] matrix;
 }
 
-vector<string> Graph::getUnloved() {
+vector<string> Graph::getUnloved() const {
     vector<string> result;
 
     for (int j = 0; j < cntName; ++j) {
@@ -44,7 +44,7 @@ vector<string> Graph::getUnloved() {
     return result;
 }
 
-vector<string> Graph::getUnhappy() {
+vector<string> Graph::getUnhappy() const {
     vector<string> result;
 
     for (int i = 0; i < cntName; ++i) {
@@ -62,7 +62,7 @@ vector<string> Graph::getUnhappy() {
     return result;
 }
 
-vector<string> Graph::getFavorite() {
+vector<string> Graph::getFavorite() const {
     vector<string> result;
     int max = 0;
 
